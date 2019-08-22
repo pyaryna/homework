@@ -1,6 +1,0 @@
-D:\me\epam\homework\inheritance\bin\Debug\inheritance.dll
-D:\me\epam\homework\inheritance\bin\Debug\inheritance.pdb
-D:\me\epam\homework\inheritance\obj\Debug\inheritance.csprojAssemblyReference.cache
-D:\me\epam\homework\inheritance\obj\Debug\inheritance.csproj.CoreCompileInputs.cache
-D:\me\epam\homework\inheritance\obj\Debug\inheritance.dll
-D:\me\epam\homework\inheritance\obj\Debug\inheritance.pdb
