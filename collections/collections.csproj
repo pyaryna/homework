@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1128341-AD86-44A9-87CB-D9CA7089AC70}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>homework</RootNamespace>
-    <AssemblyName>homework</AssemblyName>
+    <ProjectGuid>{E8818B09-AE12-45FC-9F4D-3B9C02888564}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>collections</RootNamespace>
+    <AssemblyName>collections</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,25 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Collections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\classes\classes.csproj">
-      <Project>{d34c570d-971a-43a4-baf2-20968d8fa57b}</Project>
-      <Name>classes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\collections\collections.csproj">
-      <Project>{e8818b09-ae12-45fc-9f4d-3b9c02888564}</Project>
-      <Name>collections</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\inheritance\inheritance.csproj">
-      <Project>{f39bd045-80bf-4f6b-b920-90f26a675b54}</Project>
-      <Name>inheritance</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

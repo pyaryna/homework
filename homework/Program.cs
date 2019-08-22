@@ -50,6 +50,45 @@ namespace homework
             }
         }
 
+        public static int GetPageNumber()
+        {
+            int pageNumber;
+
+            bool success = Int32.TryParse(Console.ReadLine(), out pageNumber);
+
+            if (success && pageNumber > 0)
+            {
+                return pageNumber;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public static List<string> GetListOfStrings()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            var strings = new List<string>();
+            var random = new Random();
+
+            for (int i = 0; i < 101; i++)
+            {
+                var stringChars = new char[4];
+
+
+                for (int j = 0; j < stringChars.Length; j++)
+                {
+                    stringChars[j] = chars[random.Next(chars.Length)];
+                }
+
+                strings.Add(new String(stringChars));
+            }
+
+            return strings; 
+        }
+
         static void Main(string[] args)
         {
             #region ClassesHomework            
@@ -58,7 +97,7 @@ namespace homework
 
             #region Task 1 and 2
 
-            Console.WriteLine("Task 1 and 2 \n Enter rectangle coordinates (x1,y1,x2,y2):");            
+            Console.WriteLine("Task 1 and 2 \n Enter rectangle coordinates (x1,y1,x2,y2):");
 
             string coordinatesString = Console.ReadLine();
 
@@ -89,7 +128,7 @@ namespace homework
             //coordinatesString = Console.ReadLine();
 
             //coordinates = GetCoordinates(coordinatesString);
-                        
+
             Console.WriteLine("The area of staticRectangle = " + classes.Task4.Rectangle.GetArea(new classes.Task4.Point(coordinates[0], coordinates[1]), new classes.Task4.Point(coordinates[2], coordinates[3])));
             Console.WriteLine("The perimeter of staticRectangle = " + classes.Task4.Rectangle.GetPerimeter(new classes.Task4.Point(coordinates[0], coordinates[1]), new classes.Task4.Point(coordinates[2], coordinates[3])));
 
@@ -159,6 +198,83 @@ namespace homework
             Task4.Rectangle rectangle4 = new Task4.Rectangle();
 
             Task4.DrawAll(figure4, square4, rectangle4);
+
+            #endregion
+
+            #endregion
+
+            #region CollectionsHomework
+
+            Console.WriteLine("Collections Homework");
+
+            #region Task 1
+
+            var people = new List<collections.Task1_2.Person>
+            {
+                new collections.Task1_2.Person{Name = "Tom", Age = 22, PhoneNumbers = new List<string>() { "Tom's number #1", "Tom's number #2", "Tom's number #3" } },
+                new collections.Task1_2.Person{Name = "Ann", Age = 21, PhoneNumbers = new List<string>() { "Ann's number #1", "Ann's number #2", "Ann's number #3" } },
+                new collections.Task1_2.Person{Name = "Rob", Age = 22, PhoneNumbers = new List<string>() { "Rob's number #1", "Rob's number #2", "Rob's number #3" } },
+                new collections.Task1_2.Person{Name = "Jane", Age = 25, PhoneNumbers = new List<string>() { "Jane's number #1", "Jane's number #2", "Jane's number #3" } },
+                new collections.Task1_2.Person{Name = "John", Age = 22, PhoneNumbers = new List<string>() { "John's number #1", "John's number #2", "John's number #3" } },
+                new collections.Task1_2.Person{Name = "Sid", Age = 25, PhoneNumbers = new List<string>() { "Sid's number #1", "Sid's number #2", "Sid's number #3" } },
+            };
+
+            Console.WriteLine("\nTask 1 \n");
+
+            foreach (var person in people)
+            {
+                Console.WriteLine("Name: {0}, age: {1}", person.Name, person.Age);
+            }
+
+            #endregion
+
+            #region Task2
+
+            people.AddRange(new List<collections.Task1_2.Person>
+            {
+                new collections.Task1_2.Person{Name = "Nancy", Age = 24, PhoneNumbers = new List<string>() { "Nancy's number #1", "Nancy's number #2", "Nancy's number #3" } },
+                new collections.Task1_2.Person{Name = "Alex", Age = 23, PhoneNumbers = new List<string>() { "Alex's number #1", "Alex's number #2", "Alex's number #3" } }
+            });
+
+            Console.WriteLine("\nTask 2 \n");
+
+            foreach (var person in people)
+            {
+                Console.WriteLine("Name: {0}", person.Name);
+
+                foreach (var number in person.PhoneNumbers)
+                {
+                    Console.WriteLine($"\t {number}");
+                }
+            }
+
+            #endregion
+
+            #region Task 3
+
+            Console.WriteLine("\nTask 3 \n");
+
+            var strings = GetListOfStrings();
+
+            Console.WriteLine("The count before transformation is " + strings.Count);
+
+            strings = strings.Distinct().ToList();
+
+            for (int i = 0; i < strings.Count; i++)
+            {
+                if (strings[i].StartsWith("Z"))
+                    strings.Remove(strings[i]);
+            }
+
+            Console.WriteLine("The count after transformation is " + strings.Count);
+
+            strings.Sort((a, b) => -1 * a.CompareTo(b));
+
+            Console.WriteLine("Enter the number of page:");
+
+            int pageNumber = GetPageNumber();
+
+            collections.Task3.ListExtention.DisplayPage(strings, pageNumber);
 
             #endregion
 
